@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Neuebit";
+  src: url("../public/neuebit.woff") format("woff"),
+    url("../public/neuebit.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "retro";
+  src: url("../public/retro.woff") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "fusion-pixel";
+  src: url("../public/fusion-pixel.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  @apply text-white scroll-smooth bg-dark;
+}
+
+a:link {
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #5be2fa;
+}
+
+img,
+canvas,
+.clear {
+  /* We have a lot of pixel art, so let's default to this instead of some modern blurred renderer */
+  image-rendering: pixelated;
+}
+
+.neuebit {
+  font-family: "Neuebit", sans-serif;
+}
+
+.retro {
+  font-family: "retro", sans-serif;
+}
+
+.fusion-pixel {
+  font-family: "fusion-pixel", sans-serif;
+}
+
+@keyframes bobbing {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the value as needed */
+  }
+}
+
+.bobbing {
+  animation: bobbing 2s infinite; /* Adjust the duration as needed */
+}
+
+.hue-rot {
+  filter: hue-rotate(-65deg) brightness(1.8);
+}
+
+::selection {
+  background: #5be2fa;
+}
+
+#background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+#background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse, mediumturquoise, darkslateblue);
+  filter: url(#grainy);
+}
+
+.grainy-bg {
+  background: radial-gradient(ellipse, black, transparent);
+  opacity: 0.2;
+  filter: url(#grainy);
+}
+
+#background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
