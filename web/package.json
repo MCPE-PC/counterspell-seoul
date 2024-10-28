@@ -1,0 +1,78 @@
+{
+  "name": "@mcpe_pc/counterspell-seoul",
+  "version": "0.0.1",
+  "keywords": [
+    "counterspell"
+  ],
+  "homepage": "https://counterspell.hackclub.com/seoul",
+  "bugs": {
+    "url": "https://github.com/MCPE-PC/counterspell-seoul/issues"
+  },
+  "license": "CC0-1.0",
+  "author": {
+    "name": "Jaehyeon Park",
+    "email": "me@mcpepc.com",
+    "url": "https://www.mcpepc.com/"
+  },
+  "contributors": [
+    "Siwon Yun"
+  ],
+  "files": [
+    "dist/**/*",
+    "hackclub-assets/**/*"
+  ],
+  "main": "dist/module.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCPE-PC/counterspell-seoul.git"
+  },
+  "scripts": {
+    "build": "tsc && tailwindcss -i ./src/app.css -o ./dist/app.css",
+    "dev": "vite",
+    "lint": "xo",
+    "preview": "vite preview",
+    "test": "npm run lint"
+  },
+  "dependencies": {
+    "@hackclub/banner": "^1.0.3",
+    "@infolektuell/noto-color-emoji": "^0.2.0",
+    "galmuri": "^2.39.4"
+  },
+  "devDependencies": {
+    "@tsconfig/create-react-app": "^2.0.5",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "daisyui": "^4.12.10",
+    "postcss": "^8.4.47",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vite-tsconfig-paths": "^5.0.1",
+    "xo": "^0.59.3"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  },
+  "overrides": {
+    "@hackclub/banner": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
+  "type": "module",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+@tailwind base;
+
+main > * {
+  @apply px-4 py-8;
+}
+
+h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+a:link:not(.button) {
+  @apply underline decoration-dotted;
+
+  &:hover {
+    @apply text-secondary;
+  }
+}
+
+.font-bold {
+  @apply font-galmuri11;
+}
+
+@tailwind components;
+
+.button {
+  @apply inline-block text-white font-bold bg-primary cursor-pointer px-4 py-2;
+
+  &:hover {
+    @apply bg-secondary;
+  }
+}
+
+.button-2xl {
+  @apply text-2xl px-6 py-4;
+}
+
+.showcase {
+  @apply flex flex-col justify-center text-black bg-white p-5;
+
+  & > div {
+    @apply text-7xl drop-shadow-lg mb-4;
+  }
+
+  & > p {
+    @apply text-sm;
+  }
+}
+
+@tailwind utilities;
