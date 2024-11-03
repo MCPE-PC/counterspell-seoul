@@ -6,10 +6,10 @@ const Faq: React.FC<{children: React.ReactNode; title: string}> = ({
 	title,
 }) => {
 	return (
-		<AccentBox>
-			<h3 className="text-2xl font-bold mb-2">{title}</h3>
+		<div>
+			<h3 className="text-2xl font-bold mb-1">Q. {title}</h3>
 			<span className="text-sm">{children}</span>
-		</AccentBox>
+		</div>
 	);
 };
 

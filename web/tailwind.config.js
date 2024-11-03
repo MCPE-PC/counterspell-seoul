@@ -1,4 +1,4 @@
-import daisyui from 'daisyui';
+import typewriter from 'tailwind-typewriter';
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -10,33 +10,26 @@ const config = {
 				secondary: '#41ddff',
 				dark: '#202f53',
 				darker: '#0a081e',
-				background: '#1d1d1d',
+				background: '#111111',
 			},
 			fontFamily: {
-				sans: ['Galmuri14', 'Galmuri11', 'Noto Color Emoji', 'sans-serif'],
-				monospace: ['GalmuriMono11', 'Galmuri11', 'Noto Color Emoji', 'sans-serif'],
-				galmuri11: ['Galmuri11', 'Noto Color Emoji', 'sans-serif'],
+				sans: ['Noto Sans KR Variable', 'Noto Color Emoji', 'sans-serif'],
+				bebasneue: ['Bebas Neue'],
+				monospace: ['Noto Color Emoji', 'monospace'],
 			},
 		},
 	},
-	plugins: [daisyui],
-	daisyui: {
-		themes: [
-			{
-				counterspell: {
-					primary: '#ff4186',
-					secondary: '#41ddff',
-					accent: '#ff4186',
-					neutral: '#ff00ff',
-					'base-100': '#1d1d1d',
-					info: '#0000ff',
-					success: '#00ff00',
-					warning: '#00ff00',
-					error: '#ff0000',
+	plugins: [
+		typewriter({
+			wordsets: {
+				seoul: {
+					words: [': SEOUL'],
+					repeat: 0,
+					eraseSpeed: 0,
 				},
 			},
-		],
-	},
+		}),
+	],
 };
 
 export default config;

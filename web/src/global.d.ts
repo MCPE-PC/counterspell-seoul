@@ -3,6 +3,11 @@ declare module '*.png' {
 	export default value;
 }
 
+declare module '*.svg' {
+	const value: string;
+	export default value;
+}
+
 declare module '@hackclub/banner' {
 	// eslint-disable-next-line @typescript-eslint/naming-convention
 	const Banner: React.FC<any>;
