@@ -1,24 +1,20 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from 'react';
-import { NavermapsProvider as NaverMapProvider, NaverMap, Container as NaverMapWrapper, } from 'react-naver-maps';
+import earthGlobeGraphic from '@assets/adobe-firefly/earth-globe-graphic.png';
+import guildsGraphic from '@assets/adobe-firefly/guilds-graphic.png';
+import person from '@assets/adobe-firefly/person.png';
+import wandItem from '@assets/adobe-firefly/wand-item.png';
 import busan from '@assets/busan.png';
-import hackclubIconRounded from '@assets/hackclub/icon-rounded.svg';
 import hackathon1 from '@assets/hackclub/hackathon1.png';
 import hackathon2 from '@assets/hackclub/hackathon2.png';
-import wandItem from '@assets/adobe-firefly/wand-item.png';
-import person from '@assets/adobe-firefly/person.png';
-import guildsGraphic from '@assets/adobe-firefly/guilds-graphic.png';
-import earthGlobeGraphic from '@assets/adobe-firefly/earth-globe-graphic.png';
-import '@fontsource-variable/noto-sans-kr/index.css';
-import '@fontsource/bebas-neue/index.css';
-import '@infolektuell/noto-color-emoji/index.css';
-import './app.css';
+import hackclubIconRounded from '@assets/hackclub/icon-rounded.svg';
+import React from 'react';
+import { NaverMap, NavermapsProvider as NaverMapProvider, Container as NaverMapWrapper, } from 'react-naver-maps';
 import AccentBox from './components/accent-box.js';
-import Collapse from './components/collapse.js';
 import CollapseSection from './components/collapse-section.js';
-import InformativeBox from './components/informative-box.js';
+import Collapse from './components/collapse.js';
 import Faqs from './components/faqs.js';
 import ImpactIntroduce from './components/impact-introduce.js';
+import InformativeBox from './components/informative-box.js';
 const App = () => {
     const registrationHref = 'https://event-us.kr/0/event/92133/applicant?GroupId=Group0&GroupNum=1&utm_source=website&utm_medium=websitebutton&utm_campaign=hsnhvuiihn';
     const calculateCountdown = () => {
