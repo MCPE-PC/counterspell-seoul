@@ -19,8 +19,8 @@
     "X-tower"
   ],
   "files": [
-    "dist/**/*",
-    "hackclub-assets/**/*"
+    "assets/**/*",
+    "dist/**/*"
   ],
   "main": "dist/module.js",
   "repository": {
