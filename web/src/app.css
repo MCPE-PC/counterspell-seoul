@@ -1,0 +1,29 @@
+@import url("https://kit.fontawesome.com/234aa8b2dc.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button {
+    @apply flex items-center gap-1 bg-white rounded-full text-background font-medium leading-tight px-6 py-5 lg:py-4;
+  }
+
+  .showcase {
+    @apply flex flex-col justify-center text-black bg-white p-5;
+
+    & > div {
+      @apply text-7xl drop-shadow-lg mb-4;
+    }
+
+    & > p {
+      @apply text-sm;
+    }
+  }
+}
+
+@layer utilities {
+  .lg-width {
+    @apply lg:px-14 lg:max-w-7xl lg:mx-auto;
+  }
+}
