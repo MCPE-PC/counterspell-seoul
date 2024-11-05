@@ -341,7 +341,15 @@ const App = () => {
 						<a href="https://creativecommons.org/public-domain/cc0/">CC0</a>. No
 						Rights Reserved.
 					</p>
-					<p>Hack Club 등은 Hack Club(EIN: 81-2908499)의 미국 등록 상표입니다.</p>
+					<p>
+						우리는 만들때 가장 멋집니다.&nbsp;
+						<a href="https://hackclub.com/">여기서 Hack Club</a>에 대해 더 알아보세요.
+					</p>
+					<p>
+						Hack Club 등은&nbsp;
+						<a href="https://hackclub.com/">Hack Club(EIN: 81-2908499)</a>의 미국 등록
+						상표입니다.
+					</p>
 				</div>
 			</footer>
 
@@ -360,6 +368,7 @@ const App = () => {
 					<h2>시간표</h2>
 					<div className="flex max-md:flex-col max-md:gap-4 max-w-6xl mx-auto">
 						{[
+							// TODO: add key
 							{
 								day: '11월 23일 토요일',
 								activities: [
