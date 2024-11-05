@@ -1,3 +1,6 @@
+import '@fontsource/bebas-neue/index.css';
+import '@infolektuell/noto-color-emoji/index.css';
+import 'pretendard/dist/web/variable/pretendardvariable.css';
 import React from 'react';
 import {
 	NaverMap,
@@ -12,6 +15,7 @@ import busan from '../assets/busan.png';
 import hackathon1 from '../assets/hackclub/hackathon1.png';
 import hackathon2 from '../assets/hackclub/hackathon2.png';
 import hackclubIconRounded from '../assets/hackclub/icon-rounded.svg';
+import './app.css';
 import AccentBox from './components/accent-box.js';
 import CollapseSection from './components/collapse-section.js';
 import Collapse from './components/collapse.js';
@@ -128,7 +132,7 @@ const App = () => {
 							</div>
 							<h1 className="text-6xl lg:text-8xl xl:text-9xl font-normal font-bebasneue leading-none">
 								<p>COUNTERSPELL</p>
-								<span className="type-seoul"></span>
+								<span>SEOUL</span>
 								<div className="inline-block ml-2.5 text-[#4d4d4d] font-sans text-xs lg:text-base xl:text-lg font-light leading-[14px] align-top">
 									A Beginner
 									<br />
