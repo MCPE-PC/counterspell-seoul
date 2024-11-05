@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a:link {
+    @apply decoration-[invalid];
+
+    &:hover {
+      @apply text-[invalid];
+    }
+  }
+}
+
 @layer components {
   .button {
     @apply flex items-center gap-1 bg-white rounded-full text-background font-medium leading-tight px-6 py-5 lg:py-4;

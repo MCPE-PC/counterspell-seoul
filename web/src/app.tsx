@@ -1,5 +1,6 @@
 import '@fontsource/bebas-neue/index.css';
 import '@infolektuell/noto-color-emoji/index.css';
+import 'material-icons/iconfont/material-icons.css';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
 import React from 'react';
 import earthGlobeGraphic from '../assets/adobe-firefly/earth-globe-graphic.png';
@@ -55,7 +56,7 @@ const App = () => {
 	return (
 		<main className="font-sans text-white lg:text-xl bg-background selection:bg-primary selection:text-white">
 			<div id="start" className="relative max-lg:h-screen max-lg:mb-20">
-				<header className="pt-5 pb-3 lg:py-4 lg:bg-black">
+				<header className="fixed top-0 w-full pt-5 pb-3 lg:py-4 lg:bg-black z-50">
 					<input
 						id="menu-open"
 						className="peer hidden"
@@ -67,7 +68,7 @@ const App = () => {
 						className="lg:hidden text-2xl leading-none ml-6"
 						htmlFor="menu-open"
 					>
-						<i className="fa-sharp fa-regular fa-bars"></i>
+						<span className="material-icons">menu</span>
 					</label>
 
 					<div className="hidden max-lg:peer-checked:flex max-lg:peer-checked:flex-col max-lg:peer-checked:justify-center items-center max-lg:peer-checked:fixed top-0 left-0 max-lg:peer-checked:w-full max-lg:peer-checked:h-screen z-50 lg:flex lg:justify-between lg-width">
@@ -77,7 +78,7 @@ const App = () => {
 							className="absolute top-5 right-5 text-2xl leading-none lg:hidden"
 							htmlFor="menu-open"
 						>
-							<i className="fa-sharp fa-regular fa-xmark"></i>
+							<span className="material-icons">close</span>
 						</label>
 
 						<span className="font-bebasneue text-xl max-lg:hidden">
@@ -106,7 +107,7 @@ const App = () => {
 						</a>
 					</div>
 				</header>
-				<div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-14 mt-20 mb-10 lg:mb-24 lg-width">
+				<div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-14 pt-32 mb-10 lg:mb-24 lg-width">
 					<div className="relative h-fit">
 						<div className="aspect-[75/34] lg:aspect-[unset] lg:h-[14.25rem] xl:h-[18.5rem] border-y border-[#575757] overflow-hidden">
 							<img
@@ -188,10 +189,7 @@ const App = () => {
 				id="details"
 				className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2.5 lg:gap-20 px-5 lg-width"
 			>
-				<Collapse
-					title="행사 소개"
-					iconClassName="fa-sharp fa-regular fa-circle-info"
-				>
+				<Collapse title="행사 소개" iconName="info">
 					<CollapseSection title="Counterspell: Seoul">
 						<p className="mb-5">
 							Counterspell: Seoul은 청소년만을 위한 게임 해커톤입니다. 코딩뿐만 아니라
@@ -229,18 +227,12 @@ const App = () => {
 					</CollapseSection>
 				</Collapse>
 
-				<Collapse
-					title="프로그램 및 일정"
-					iconClassName="fa-sharp fa-regular fa-calendar"
-				>
+				<Collapse title="프로그램 및 일정" iconName="calendar_today">
 					<CollapseSection title="일정">일정표 이미지 업로드</CollapseSection>
 					<CollapseSection title="프로그램">세부 설명</CollapseSection>
 				</Collapse>
 
-				<Collapse
-					title="오시는 길"
-					iconClassName="fa-sharp fa-regular fa-location-dot"
-				>
+				<Collapse title="오시는 길" iconName="location_on">
 					<CollapseSection title="위치">
 						<div className="aspect-[5/3] mb-2.5">
 							<iframe
@@ -276,21 +268,15 @@ const App = () => {
 					</CollapseSection>
 				</Collapse>
 
-				<Collapse
-					title="참가자 필독 핵심 내용"
-					iconClassName="fa-sharp fa-regular fa-check-double"
-				>
+				<Collapse title="참가자 필독 핵심 내용" iconName="checklist">
 					To Be Announced
 				</Collapse>
 
-				<Collapse
-					title="자주 묻는 질문 (FAQ)"
-					iconClassName="fa-sharp fa-regular fa-message-question"
-				>
+				<Collapse title="자주 묻는 질문 (FAQ)" iconName="quiz">
 					<Faqs />
 				</Collapse>
 
-				<Collapse title="문의" iconClassName="fa-sharp fa-regular fa-phone">
+				<Collapse title="문의" iconName="call">
 					<CollapseSection>
 						<p className="text-lg font-bold mb-5">
 							<a href="mailto:seoul@counterspell.hackclub.com">
@@ -344,7 +330,10 @@ const App = () => {
 
 				<div className="self-stretch text-center text-xs leading-normal mt-14">
 					<p>
-						Code on&nbsp;
+						<b>Design</b> &copy; 2024 Juhyung Park. All Rights Reserved.
+					</p>
+					<p>
+						<b>Code</b> on&nbsp;
 						<a href="https://github.com/MCPE-PC/counterspell-seoul/tree/main/web">
 							GitHub
 						</a>
@@ -352,8 +341,7 @@ const App = () => {
 						<a href="https://creativecommons.org/public-domain/cc0/">CC0</a>. No
 						Rights Reserved.
 					</p>
-					<p>Design &copy; 2024 Juhyung Park</p>
-					<p>Hack Club의 지식재산권을 사용할 정당한 권한이 있습니다.</p>
+					<p>Hack Club 등은 Hack Club(EIN: 81-2908499)의 미국 등록 상표입니다.</p>
 				</div>
 			</footer>
 

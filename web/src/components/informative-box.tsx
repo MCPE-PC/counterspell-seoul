@@ -5,7 +5,7 @@ const InformativeBox: React.FC<{
 }> = ({children}) => {
 	return (
 		<div className="flex items-start bg-[#535353] leading-snug rounded-3xl px-3 py-2.5">
-			<i className="fa-sharp fa-regular fa-circle-info text-xl mr-1.5"></i>
+			<span className="material-icons text-xl mr-1.5">info</span>
 			<p>{children}</p>
 		</div>
 	);
