@@ -8,7 +8,11 @@ export default defineConfig({
 		lib: {
 			entry: 'src/module.ts',
 			formats: ['es'],
+			name: 'CounterspellSeoul',
 			fileName: 'index',
+		},
+		rollupOptions: {
+			external: ['react'],
 		},
 	},
 });
