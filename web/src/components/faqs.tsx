@@ -22,24 +22,23 @@ const InformativeBox: React.FC = () => {
 			</Faq>
 			<Faq title="무엇을 만들어야 하나요?">
 				<p>
-					<span className="font-bold">모든 종류의 비디오 게임</span>을 만들 수
-					있어요. 모든 게임은 똑같이 중요하니까요! 해커톤 주제는 오프닝 때 공개돼요.
+					<strong>모든 종류의 비디오 게임</strong>을 만들 수 있어요. 모든 게임은
+					똑같이 중요하니까요! 해커톤 주제는 오프닝 때 공개돼요.
 				</p>
 			</Faq>
 			<Faq title="참가 비용이 있나요?">
 				<p>
-					<span className="font-bold">아니요!</span> 참가에는 어떠한 비용도 들지
-					않아요. 하지만, 교통비와 같이 Counterspell 서울에 포함되지 않은 비용은
-					스스로 내야 해요.
+					<strong>아니요!</strong> 참가에는 어떠한 비용도 들지 않아요. 하지만,
+					교통비와 같이 Counterspell 서울에 포함되지 않은 비용은 스스로 내야 해요.
 				</p>
 			</Faq>
 			<Faq title="길드가 뭐예요?">
 				<p>
 					참가 등록할 때 길드를 선택해 굿즈와 배지를 받고 여러 활동에서 다른 길드와
 					대결할 수 있어요. 그림을 다루는&nbsp;
-					<span className="font-bold">아티스트</span> 길드, 음악을 다루는&nbsp;
-					<span className="font-bold">뮤지션</span> 길드, 그리고 코드를 다루는&nbsp;
-					<span className="font-bold">코더</span> 길드가 있어요.
+					<strong>아티스트</strong> 길드, 음악을 다루는&nbsp;
+					<strong>뮤지션</strong> 길드, 그리고 코드를 다루는&nbsp;
+					<strong>코더</strong> 길드가 있어요.
 				</p>
 			</Faq>
 			<Faq title="코딩을 잘 못 해도 되나요?">
@@ -56,8 +55,8 @@ const InformativeBox: React.FC = () => {
 			</Faq>
 			<Faq title="팀은 어떻게 짜나요?">
 				<p>
-					팀은 <span className="font-bold">현장에서</span> 게임 만들기 시작 시간
-					전까지 참석자가 정해요. (그럴 필요 없지만, 미리 준비해도 좋아요!)
+					팀은 <strong>현장에서</strong> 게임 만들기 시작 시간 전까지 참석자가
+					정해요. (그럴 필요 없지만, 미리 준비해도 좋아요!)
 				</p>
 				<p>
 					한 팀은 기본적으로 아티스트, 뮤지션, 그리고 코더 각 1명으로 구성해야 해요.
@@ -66,30 +65,28 @@ const InformativeBox: React.FC = () => {
 			</Faq>
 			<Faq title="무엇을 가져가야 하나요?">
 				<p>
-					<span className="font-bold">노트북(랩탑)</span>,&nbsp;
-					<span className="font-bold">충전기</span>, 그리고&nbsp;
-					<span className="font-bold">열린 마음</span>만 있으면 문제 없어요! 필요한
-					약품, 화장실 용품, 수면 용품 등이 있다면 함께 가져와 주세요.
+					<strong>노트북(랩탑)</strong>,&nbsp;
+					<strong>충전기</strong>, 그리고&nbsp;
+					<strong>열린 마음</strong>만 있으면 문제 없어요! 필요한 약품, 화장실 용품,
+					수면 용품 등이 있다면 함께 가져와 주세요.
 				</p>
 			</Faq>
 			<Faq title="부모님이 걱정하세요!">
 				<p className="mb-1">
-					Counterspell 서울은 <span className="font-bold">청소년보호법</span>을
-					준수하고 <span className="font-bold">다양성</span>을 존중해요. 사람마다
-					필요한 식사와 수면을 보장하고, 다과와 음료,&nbsp;
-					<span className="font-bold">행사배상책임보험</span>까지 모두 무료로
-					제공해요.
+					Counterspell 서울은 <strong>청소년보호법</strong>을 준수하고&nbsp;
+					<strong>다양성</strong>을 존중해요. 사람마다 필요한 식사와 수면을 보장하고,
+					다과와 음료,&nbsp;
+					<strong>행사배상책임보험</strong>까지 모두 무료로 제공해요.
 				</p>
 				<p>설명이나 도움이 필요하면 언제든지 문의해주세요!</p>
 			</Faq>
 			<Faq title="숙박 객실을 제공하나요?">
 				<p>
 					아니요! 분리된 객실은 제공하지 않으며,&nbsp;
-					<span className="font-bold">수면 공간</span>을 준비해요. 외부 숙박 객실이
-					꼭 필요하다면,&nbsp;
-					<span className="font-bold">비용을 내고 예약</span>을 도와드릴 수 있으니
-					문의해주세요! 외부에서 숙박하면 팀원과 함께 있지 못하게 되니, 미리 팀원과
-					협의해주세요.
+					<strong>수면 공간</strong>을 준비해요. 외부 숙박 객실이 꼭
+					필요하다면,&nbsp;
+					<strong>비용을 내고 예약</strong>을 도와드릴 수 있으니 문의해주세요!
+					외부에서 숙박하면 팀원과 함께 있지 못하게 되니, 미리 팀원과 협의해주세요.
 				</p>
 			</Faq>
 			<Faq title="후원하는 돈이나 물건 등은 어디에 사용되나요?">

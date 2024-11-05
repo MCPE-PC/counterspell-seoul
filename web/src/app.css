@@ -6,7 +6,7 @@
 
 @layer base {
   a:link {
-    @apply decoration-[invalid];
+    @apply no-underline;
 
     &:hover {
       @apply text-[invalid];
