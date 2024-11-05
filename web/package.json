@@ -22,13 +22,13 @@
     "assets/**/*",
     "dist/**/*"
   ],
-  "main": "dist/module.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MCPE-PC/counterspell-seoul.git"
   },
   "scripts": {
-    "build": "tsc && tailwindcss -i ./src/app.css -o ./dist/app.css",
+    "build": "vite build",
     "dev": "vite",
     "lint": "xo",
     "preview": "vite preview",
@@ -52,7 +52,6 @@
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2",
     "vite": "^5.4.8",
-    "vite-tsconfig-paths": "^5.0.1",
     "xo": "^0.59.3"
   },
   "peerDependencies": {

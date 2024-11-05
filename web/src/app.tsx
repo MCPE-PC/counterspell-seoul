@@ -21,7 +21,7 @@ import InformativeBox from './components/informative-box.js';
 
 const App = () => {
 	const registrationHref =
-		'https://event-us.kr/0/event/92133/applicant?GroupId=Group0&GroupNum=1&utm_source=website&utm_medium=websitebutton&utm_campaign=hsnhvuiihn';
+		'https://event-us.kr/0/event/92133?utm_source=website&utm_medium=websitebutton&utm_campaign=hsnhvuiihn';
 
 	const calculateCountdown = () => {
 		const seconds = (1_732_330_800_000 - Date.now()) / 1000;
