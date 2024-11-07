@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
 	plugins: [react()],
 	build: {
-		...(!env.AWS_LAMBDA_FUNCTION_VERSION && {
+		...(!env.VERCEL && {
 			lib: {
 				entry: 'src/module.ts',
 				formats: ['es'],
