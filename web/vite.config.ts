@@ -13,9 +13,9 @@ export default defineConfig({
 				name: 'CounterspellSeoul',
 				fileName: 'index',
 			},
+			rollupOptions: {
+				external: ['react'],
+			},
 		}),
-		rollupOptions: {
-			external: ['react'],
-		},
 	},
 });
