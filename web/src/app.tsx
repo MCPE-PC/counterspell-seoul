@@ -229,7 +229,54 @@ const App = () => {
 
 				<Collapse title="프로그램 및 일정" iconName="calendar_today">
 					<CollapseSection title="일정">일정표 이미지 업로드</CollapseSection>
-					<CollapseSection title="프로그램">세부 설명</CollapseSection>
+					<CollapseSection title="프로그램">
+						[예정안]
+						<div className="flex max-md:flex-col max-md:gap-4 max-w-6xl mx-auto">
+							{[
+								// TODO: add key
+								{
+									day: '11월 23일 토요일',
+									activities: [
+										['오전 11시', '참석 등록 시작'],
+										['오후 12시', '오프닝 행사'],
+										['오후 12시 30분', '점심 식사'],
+										['오후 1시', '게임 만들기 시작!'],
+										['오후 2시', '게임 개발 워크샵 1'],
+										['오후 4시', '활동 1'],
+										['오후 4시', '게임 개발 워크샵 2'],
+										['오후 6시', '저녁 식사'],
+										['오후 8시', '자유 즉석 발표'],
+									],
+								},
+								{
+									day: '11월 24일 일요일',
+									activities: [
+										['오전 12시', '서프라이즈!'],
+										['오전 8시', '아침 식사'],
+										['오전 10시 30분', '만든 게임 보여주기!'],
+										['오후 12시', '지역 시상 및 클로징 행사'],
+										['오후 12시 30분', '애프터 파티 & 점심 식사 (희망 참석자)'],
+									],
+								},
+							].map(({day, activities}) => (
+								<div className="flex-1">
+									<h3 className="font-bold">{day}</h3>
+									<ul className="timeline timeline-vertical">
+										{activities.map(([time, activity]) => (
+											<li className="group">
+												<hr className="bg-darker group-first:hidden" />
+												<div className="timeline-start">{time} ~</div>
+												<div className="timeline-end timeline-box bg-darker rounded-none px-2 py-1">
+													{activity}
+												</div>
+												<hr className="bg-darker group-last:hidden" />
+											</li>
+										))}
+									</ul>
+								</div>
+							))}
+						</div>
+					</CollapseSection>
 				</Collapse>
 
 				<Collapse title="오시는 길" iconName="location_on">
@@ -366,51 +413,6 @@ const App = () => {
 				\{' '}
 				<div className="bg-dark">
 					<h2>시간표</h2>
-					<div className="flex max-md:flex-col max-md:gap-4 max-w-6xl mx-auto">
-						{[
-							// TODO: add key
-							{
-								day: '11월 23일 토요일',
-								activities: [
-									['오전 11시', '참석 등록 시작'],
-									['오후 12시', '오프닝 행사'],
-									['오후 12시 30분', '점심 식사'],
-									['오후 1시', '게임 만들기 시작!'],
-									['오후 2시', '게임 개발 워크샵 1'],
-									['오후 4시', '활동 1'],
-									['오후 4시', '게임 개발 워크샵 2'],
-									['오후 6시', '저녁 식사'],
-									['오후 8시', '자유 즉석 발표'],
-								],
-							},
-							{
-								day: '11월 24일 일요일',
-								activities: [
-									['오전 12시', '서프라이즈!'],
-									['오전 8시', '아침 식사'],
-									['오전 10시 30분', '만든 게임 보여주기!'],
-									['오후 12시', '지역 시상 및 클로징 행사'],
-									['오후 12시 30분', '애프터 파티 & 점심 식사 (희망 참석자)'],
-								],
-							},
-						].map(({day, activities}) => (
-							<div className="flex-1">
-								<h3 className="font-bold">{day}</h3>
-								<ul className="timeline timeline-vertical">
-									{activities.map(([time, activity]) => (
-										<li className="group">
-											<hr className="bg-darker group-first:hidden" />
-											<div className="timeline-start">{time} ~</div>
-											<div className="timeline-end timeline-box bg-darker rounded-none px-2 py-1">
-												{activity}
-											</div>
-											<hr className="bg-darker group-last:hidden" />
-										</li>
-									))}
-								</ul>
-							</div>
-						))}
-					</div>
 				</div>
 				<div className="bg-darker">
 					<h2>기념품 &middot; 상</h2>
@@ -459,28 +461,6 @@ const App = () => {
 							결정해요.
 						</p>
 					</AccentBox>
-				</div>
-				<div className="bg-dark">
-					<h2>자주 묻는 질문</h2>
-				</div>
-				<div className="bg-darker">
-					<h2>운영진</h2>
-					<div className="flex justify-center items-center gap-2 max-h-20">
-						<a href="https://github.com/MCPE-PC">
-							<img
-								className="inline rounded-full h-full"
-								src="https://avatars.githubusercontent.com/u/20432839?v=4"
-								alt="Jaehyeon Park"
-							/>
-						</a>
-						<a href="https://github.com/ysw421">
-							<img
-								className="inline rounded-full h-full"
-								src="https://avatars.githubusercontent.com/u/63529804?v=4"
-								alt="Siwon Yun"
-							/>
-						</a>
-					</div>
 				</div>
 			</div>
 		</main>
