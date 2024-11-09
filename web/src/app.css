@@ -7,10 +7,10 @@
 @layer base {
   a:link {
     @apply no-underline;
+  }
 
-    &:hover {
-      @apply text-[invalid];
-    }
+  footer a:link {
+    @apply underline;
   }
 }
 

@@ -21,36 +21,10 @@ import InformativeBox from './components/informative-box.js';
 
 const App = () => {
 	const registrationHref =
-		'https://event-us.kr/0/event/92133?utm_source=website&utm_medium=websitebutton&utm_campaign=hsnhvuiihn';
-
-	const calculateCountdown = () => {
-		const seconds = (1_732_330_800_000 - Date.now()) / 1000;
-
-		return [
-			seconds / 86_400,
-			'일',
-			(seconds % 86_400) / 3600,
-			'시간',
-			(seconds % 3600) / 60,
-			'분',
-			seconds % 60,
-			'초',
-		];
-	};
-
-	const [countdown, setCountdown] =
-		React.useState<ReturnType<typeof calculateCountdown>>(calculateCountdown());
+		'https://event-us.kr/0/event/92133/applicant?GroupId=Group0&GroupNum=1&utm_source=website&utm_medium=websitebutton&utm_campaign=hsnhvuiihn';
 
 	React.useEffect(() => {
 		document.title = 'Counterspell 서울';
-
-		const timer = setInterval(() => {
-			setCountdown(calculateCountdown());
-		}, 500);
-
-		return () => {
-			clearInterval(timer);
-		};
 	}, []);
 
 	return (
@@ -287,13 +261,14 @@ const App = () => {
 								referrerPolicy="no-referrer-when-downgrade"
 								allowFullScreen
 								title="지도"
-								src="https://www.google.com/maps/embed/v1/view?zoom=10&center=37.5503%2C126.9971&key=AIzaSyBYS-R0mqWTDIxNFn9j3OuZlETg-MVTRS4"
+								src="https://www.google.com/maps/embed/v1/view?zoom=18&center=37.5063534%2C127.0227873&key=AIzaSyBYS-R0mqWTDIxNFn9j3OuZlETg-MVTRS4"
 							></iframe>
 						</div>
-						<p className="font-light text-xl mb-5">
-							To Be Announced{/* 서울특별시 (Line 1), (Line 2) */}
-						</p>
-
+						<div className="text-lg font-light mb-5">
+							<p>서울특별시 서초구 사평대로57길 44</p>
+							<p className="text-xl font-medium">올댓마인드 신논현점 3층</p>
+							<p>주차: 서초 언구비 공영주차장</p>
+						</div>
 						<a href="https://counterspellbusan.com/">
 							<div className="flex text-black text-sm bg-white leading-snug rounded-3xl">
 								<img
