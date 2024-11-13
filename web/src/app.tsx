@@ -8,6 +8,8 @@ import guildsGraphic from '../assets/adobe-firefly/guilds-graphic.png';
 import person from '../assets/adobe-firefly/person.png';
 import wandItem from '../assets/adobe-firefly/wand-item.png';
 import busan from '../assets/busan.png';
+import nuriGs from '../assets/nuri-gs.png';
+import modooSolution from '../assets/modoo-solution.png';
 import hackathon1 from '../assets/hackclub/hackathon1.png';
 import hackathon2 from '../assets/hackclub/hackathon2.png';
 import hackclubIconRounded from '../assets/hackclub/icon-rounded.svg';
@@ -24,11 +26,28 @@ const App = () => {
 		'https://event-us.kr/0/event/92133/applicant?GroupId=Group0&GroupNum=1&utm_source=website&utm_medium=websitebutton&utm_campaign=hsnhvuiihn';
 
 	React.useEffect(() => {
-		document.title = 'Counterspell 서울';
+		document.title = 'Counterspell: Seoul';
+
+		const widgetbotScript = document.createElement('script');
+		widgetbotScript.src = 'https://cdn.jsdelivr.net/npm/@widgetbot/crate@3';
+		widgetbotScript.async = true;
+		widgetbotScript.defer = true;
+		widgetbotScript.addEventListener('load', () => {
+			// eslint-disable-next-line no-new
+			new window.Crate({
+				server: '1305148048795504751',
+				channel: '1305175555314028646',
+			});
+		});
+		document.body.append(widgetbotScript);
+
+		return () => {
+			widgetbotScript.remove();
+		};
 	}, []);
 
 	return (
-		<main className="font-sans text-white lg:text-xl bg-background selection:bg-primary selection:text-white">
+		<main className="font-sans text-white lg:text-xl bg-background">
 			<div id="start" className="relative max-lg:h-screen max-lg:mb-20">
 				<header className="fixed top-0 w-full pt-5 pb-3 lg:py-4 lg:bg-black z-50">
 					<input
@@ -136,21 +155,15 @@ const App = () => {
 			>
 				<ImpactIntroduce heading={'초심자를 위한\n게임 해커톤'} iconImage={person}>
 					<p>중학생과 고등학생.</p>
-					<p className="text-base-content">
-						<a href="#">(자주 묻는 질문)</a>
-					</p>
 					<p>경험이 없어도 됩니다.</p>
 				</ImpactIntroduce>
 
 				<ImpactIntroduce heading={'코더.\n화가. 뮤지션.'} iconImage={guildsGraphic}>
-					<p>
-						하고 싶은 역할을 맡고 한정 굿즈까지. 언제든지 다른 역할로 바꿀 수
-						있답니다.
-					</p>
+					<p>하고 싶은 역할을 맡고 한정 굿즈까지.</p>
 				</ImpactIntroduce>
 
 				<ImpactIntroduce
-					heading={'전 세계\n200+ 도시에서'}
+					heading={'전 세계\n150+ 도시에서'}
 					iconImage={earthGlobeGraphic}
 				>
 					<p>글로벌 비영리법인 Hack Club이 개최하고 지원합니다.</p>
@@ -261,13 +274,22 @@ const App = () => {
 								referrerPolicy="no-referrer-when-downgrade"
 								allowFullScreen
 								title="지도"
-								src="https://www.google.com/maps/embed/v1/view?zoom=18&center=37.5063534%2C127.0227873&key=AIzaSyBYS-R0mqWTDIxNFn9j3OuZlETg-MVTRS4"
+								src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJKV4Mp-6ffDUR2j6UyvRggmY&zoom=18&key=AIzaSyBYS-R0mqWTDIxNFn9j3OuZlETg-MVTRS4"
 							></iframe>
 						</div>
 						<div className="text-lg font-light mb-5">
-							<p>서울특별시 서초구 사평대로57길 44</p>
-							<p className="text-xl font-medium">올댓마인드 신논현점 3층</p>
-							<p>주차: 서초 언구비 공영주차장</p>
+							<p>서울특별시 구로구 디지털로26길 38</p>
+							<p className="text-xl font-medium">
+								<a
+									className="flex items-center"
+									href="https://map.naver.com/p/entry/place/1030967817"
+									target="_blank"
+									rel="noopener"
+								>
+									지타워(넷마블 사옥) 중회의실&nbsp;
+									<i className="fa-sharp fa-regular fa-arrow-up-right"></i>
+								</a>
+							</p>
 						</div>
 						<a href="https://counterspellbusan.com/">
 							<div className="flex text-black text-sm bg-white leading-snug rounded-3xl">
@@ -291,7 +313,65 @@ const App = () => {
 				</Collapse>
 
 				<Collapse title="참가자 필독 핵심 내용" iconName="checklist">
-					To Be Announced
+					<CollapseSection title="신청 방법 및 알림 채널">
+						<ul className="list-disc ml-4">
+							<li>
+								참가 신청: 이벤터스 플랫폼을 이용하며, 참가 신청하기 버튼을
+								이용해주세요.
+							</li>
+							<li>
+								참가 대상 및 인원: 선착순 150명이며 정확한 참가 대상은 자주 묻는 질문을
+								참고해주세요.
+							</li>
+							<li>
+								알림 채널: 중요 알림은 문자 메시지로 전송돼요. 중요하지 않은 소식은
+								홈페이지 오른쪽 아래 Discord 채널에서 확인하실 수 있어요.
+							</li>
+						</ul>
+					</CollapseSection>
+					<CollapseSection title="준비물">
+						<ul className="list-disc ml-4">
+							<li>필수 준비물: 노트북(랩탑), 충전기, 열린 마음</li>
+							<li>필요하면 가져오세요: 가방, 약품, 화장실 용품, 수면 용품, 예비 옷</li>
+							<li>수면 공간은 간단하게만 준비되므로, 담요나 침낭이 있으면 좋아요.</li>
+							<li>
+								가져와도 돼요: 장난감, 보드 게임, 소리가 크지 않은 악기, 게임 콘솔,
+								참가자들과 나눌 스티커나 배지, 코스튬 등
+							</li>
+							<li>가져오면 안돼요: 위험 물건, 청소년유해매체물, 주류, 담배 등</li>
+							<li>물품 보관이 운영되지만, 가능하면 직접 소지해주세요.</li>
+						</ul>
+					</CollapseSection>
+					<CollapseSection title="사고 방지 안내">
+						<ul className="list-disc ml-4">
+							<li>보안을 위해 장소 출입이 통제되므로 항상 운영진과 함께 다니세요.</li>
+							<li>
+								안전상비의약품을 구비하고 있으며 현장에서 운영팀에게 요청하면 보호자의
+								동의를 확인한 다음 무료로 제공할 수 있어요.
+							</li>
+							<li>
+								야간에는 안전을 위해 입장이 통제되니, 입장해야 한다면 운영팀과
+								경호원에게 알려주세요.
+							</li>
+							<li>
+								응급 상황이 발생하면 응급 조치 후 보호자에게 연락드려 이후 조치를
+								진행해요.
+							</li>
+							<li>
+								보험은 캐롯손해보험 행사배상책임보험이에요. (손해배상 1억원, 구내치료비
+								1인당 100만원과 1사고당 100만원을 보장해요.)
+							</li>
+							<li>
+								운영팀의 잘못이 없는 사고에도 구내치료비 보상을 신청할 수 있고
+								자기부담금은 10만 원이에요.
+							</li>
+							<li>보호자는 만 19세 이상 성인으로 지정해야 해요.</li>
+							<li>
+								만 14세 미만은 반드시 법정대리인을 보호자로 지정해야 하고, 운영팀은 참가
+								동의 여부를 확인해요.
+							</li>
+						</ul>
+					</CollapseSection>
 				</Collapse>
 
 				<Collapse title="자주 묻는 질문 (FAQ)" iconName="quiz">
@@ -313,7 +393,39 @@ const App = () => {
 					</CollapseSection>
 				</Collapse>
 			</div>
-			<footer className="relative font-extralight bg-[#1f1f1f] p-5 mt-20">
+			<div className="bg-[#1f1f1f] p-10 my-10">
+				<div className="lg-width">
+					<h2 className="text-4xl font-black mb-10">Sponsors.</h2>
+					<div className="flex justify-between max-h-14 md:max-h-16 xl:max-h-20">
+						{[
+							{
+								href: 'https://hackclub.com/',
+								src: hackclubIconRounded,
+								alt: 'Hack Club',
+							},
+							{
+								href: 'https://nuri-gs.com/',
+								src: nuriGs,
+								alt: '(주)누리글로벌서비스',
+							},
+							{
+								href: 'https://www.modoosol.com/',
+								src: modooSolution,
+								alt: '(주)모두솔루션',
+							},
+						].map((sponsor, index) => (
+							<a key={index} className="flex justify-center w-fit" href={sponsor.href}>
+								<img
+									className={`object-contain h-full${index === 1 ? ' scale-150' : ''}`}
+									src={sponsor.src}
+									alt={sponsor.alt}
+								/>
+							</a>
+						))}
+					</div>
+				</div>
+			</div>
+			<footer className="relative font-extralight bg-[#1f1f1f] p-5">
 				<div className="absolute right-5 text-right text-[#3a3a3a] text-xl font-black leading-7 lg:hidden">
 					“With major
 					<br />
@@ -376,19 +488,6 @@ const App = () => {
 			</footer>
 
 			<div className="hidden">
-				<p className="font-bold mb-1">후원</p>
-				<div className="grid place-items-center grid-cols-3 md:grid-cols-6 gap-2 px-2">
-					<a href="https://hackclub.com/">
-						<img
-							src="https://assets.hackclub.com/flag-standalone.svg"
-							title="Hack Club"
-						/>
-					</a>
-				</div>
-				\{' '}
-				<div className="bg-dark">
-					<h2>시간표</h2>
-				</div>
 				<div className="bg-darker">
 					<h2>기념품 &middot; 상</h2>
 					<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-fit px-2 mx-auto mb-4">

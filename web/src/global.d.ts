@@ -1,15 +1,18 @@
-declare module '*.png' {
-	const value: string;
-	export default value;
-}
+import type Crate from '@widgetbot/crate';
 
-declare module '*.svg' {
-	const value: string;
-	export default value;
-}
+declare global {
+	declare module '*.png' {
+		const value: string;
+		export default value;
+	}
 
-declare module '@hackclub/banner' {
-	// eslint-disable-next-line @typescript-eslint/naming-convention
-	const Banner: React.FC<any>;
-	export default Banner;
+	declare module '*.svg' {
+		const value: string;
+		export default value;
+	}
+
+	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+	interface Window {
+		Crate: typeof Crate;
+	}
 }
