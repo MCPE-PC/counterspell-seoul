@@ -77,16 +77,24 @@ https://counterspell-seoul.vercel.app/?gift=${referral}`;
 					icon: 'success',
 					title: referral,
 					text: '(영어 소문자와 숫자)',
-					confirmButtonText: '공유하기',
+					confirmButtonText:
+						'<div class="flex items-center"><span class="material-icons">share</span> 공유</div>',
 					allowOutsideClick: false,
 					async preConfirm() {
 						await navigator.clipboard.writeText(text);
 
-						await navigator
-							.share({
-								text,
-							})
-							.catch(() => {});
+						await Promise.race([
+							new Promise((resolve) => {
+								setTimeout(() => {
+									resolve(true);
+								}, 5000);
+							}), // Timeout
+							navigator
+								.share({
+									text,
+								})
+								.catch(() => {}),
+						]);
 					},
 				});
 
@@ -123,7 +131,9 @@ https://counterspell-seoul.vercel.app/?gift=${referral}`;
 					if (!navigator?.share) {
 						event.preventDefault();
 
-						window.open(window.location.href, '_blank');
+						window.location.href = /ipad|iphone|ipod/i.test(navigator.userAgent)
+							? `googlechrome://navigate?url=${window.location.href}`
+							: `intent:${window.location.href}#Intent;end`;
 					}
 				}}
 			/>

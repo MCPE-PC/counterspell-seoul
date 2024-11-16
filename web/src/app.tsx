@@ -4,6 +4,7 @@ import 'material-icons/iconfont/material-icons.css';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
 import React from 'react';
 import Swal from 'sweetalert2';
+import {useOpenExternalBrowser} from 'open-external-browser';
 import earthGlobeGraphic from '../assets/adobe-firefly/earth-globe-graphic.png';
 import guildsGraphic from '../assets/adobe-firefly/guilds-graphic.png';
 import person from '../assets/adobe-firefly/person.png';
@@ -28,6 +29,8 @@ import PromotionBanner from './components/promotion-banner.js';
 const App = () => {
 	const registrationHref =
 		'https://event-us.kr/0/event/92133/applicant?GroupId=Group0&GroupNum=1&utm_source=website&utm_medium=websitebutton&utm_campaign=hsnhvuiihn';
+
+	useOpenExternalBrowser({where: 'all'});
 
 	React.useEffect(() => {
 		document.title = 'Counterspell: Seoul';
