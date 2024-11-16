@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 type Gift = {
 	displayName: string;
 	imageUrl: string;
+	count?: number;
 };
 
 const Promotion: React.FC = () => {
@@ -33,6 +34,18 @@ const Promotion: React.FC = () => {
 			displayName: '아이스 카페 아메리카노 T 2잔 + 부드러운 생크림 카스텔라',
 			imageUrl:
 				'https://st.kakaocdn.net/product/gift/product/20240430151332_0716eac9c1604c1e82b01afe5ad7746d.jpg',
+			count: 1,
+		},
+		{
+			displayName: '스팀 월렛 코드 1만원',
+			imageUrl:
+				'https://store.cloudflare.steamstatic.com/public/images/gift/steamcards_physical.png',
+			count: 2,
+		},
+		{
+			displayName: 'Google Play 기프트 코드 5천원',
+			imageUrl: 'https://sitem.ssgcdn.com/68/72/85/item/1000518857268_i1_1200.jpg',
+			count: 5,
 		},
 	];
 
@@ -154,14 +167,19 @@ https://counterspell-seoul.vercel.app/?gift=${referral}`;
 				</h1>
 
 				<div>
-					<ul className="grid grid-cols-2 justify-center gap-2 mb-4 px-10 mx-auto w-fit">
+					<ul className="grid grid-cols-2 lg:grid-cols-3 justify-center gap-2 mb-4 px-10 mx-auto w-fit">
 						{gifts.map((gift) => (
-							<li className="min-w-12 max-w-40">
+							<li className="relative min-w-12 max-w-40">
 								<img
-									className="rounded-xl"
+									className="rounded-full bg-white"
 									src={gift.imageUrl}
 									alt={gift.displayName}
 								/>
+								{gift.count && (
+									<span className="absolute bg-orange-400 top-1 right-1 rounded-full aspect-[1/1] p-2 font-semibold text-sm">
+										{gift.count}명
+									</span>
+								)}
 							</li>
 						))}
 					</ul>
@@ -224,9 +242,9 @@ https://counterspell-seoul.vercel.app/?gift=${referral}`;
 						이전 참가 신청한 사람이 경품 지급 조건을 충족하면 무조건 하나 더 드려요.
 						[선물] 3종 확률로 추첨하여 나온 상품에 대한 GS25 교환권 [유의사항]
 						Counterspell: Seoul에 참가하지 않는 사람도 추천 코드를 만들 수 있어요.
-						스타벅스 아이스 카페 아메리카노 T 2잔 + 부드러운 생크림 카스텔라는 이벤트
-						참여 유형(운영팀 판단)별 1명을 추후 추첨으로 지급해요. 서로를 추천해도 둘
-						다 하나의 경품만 드려요. 추천 받은 사람도 추천 코드를 만들 수 있어요.
+						당첨 인원이 정해진 상품은 선물 지급 조건을 충족한 사람 중 별도 추첨으로
+						지급해요. 서로를 추천해도 둘 다 하나의 경품만 드려요. 추천 받은 사람도
+						추천 코드를 만들 수 있어요. 자기 자신의 추천은 인정하지 않아요.
 					</p>
 				</div>
 			</div>
