@@ -67,8 +67,9 @@ const Promotion: React.FC = () => {
 				const data = await response.json();
 				const referral = data.referralCode as string;
 				const gift = gifts[data.gift as number];
-				const text = `대규모 청소년 게임잼
-초대 코드 ${referral} 입력하고 참석하면
+				const text = `게임 개발에 관심 있는 청소년들, 모두 모여라!
+
+추천 코드 ${referral} 입력하고 참석하면
 랜덤 선물을 드려요.
 
 https://counterspell-seoul.vercel.app/?gift=${referral}`;
@@ -175,7 +176,7 @@ https://counterspell-seoul.vercel.app/?gift=${referral}`;
 								<strong>참석한 친구에게도</strong> 랜덤 선물을 드려요!
 							</li>
 							<li>
-								<strong>4명 이상</strong> 초대하면 선물 하나 더!
+								<strong>4명 이상</strong> 추천하면 선물 하나 더!
 							</li>
 						</ol>
 						<div>
@@ -217,14 +218,15 @@ https://counterspell-seoul.vercel.app/?gift=${referral}`;
 					<p className="text-center text-xs mt-8 mb-16 px-4">
 						[개인정보 제3자 제공] 제공받는 자: 주식회사 카카오, 목적: 선물 발송 및
 						관리, 제공받는 정보: 휴대전화번호와 당첨된 선물, 보유기간: 1년 이내. [선물
-						지급 조건] 초대 코드를 발급받고 친구가 초대 코드를 입력해 Counterspell:
+						지급 조건] 추천 코드를 발급받고 친구가 추천 코드를 입력해 Counterspell:
 						Seoul에 참가 신청한 다음 참석하면 12월 31일 이내 선물을 보내드려요. 4명
-						이상 초대한 경우 선물을 하나 추첨하기 위해 연락드려요. [선물] 3종 중 동일
-						확률로 추첨하여 나온 상품에 대한 GS25 교환권 [유의사항] Counterspell:
-						Seoul에 참가하지 않는 사람도 추천 코드를 만들 수 있어요. 스타벅스 아이스
-						카페 아메리카노 T 2잔 + 부드러운 생크림 카스텔라는 이벤트 참여 유형(운영팀
-						판단)별 1명을 추후 추첨으로 지급해요. 서로를 초대해도 둘 다 하나의 경품만
-						드려요. 추천 받은 사람도 추천 코드를 만들 수 있어요.
+						이상 추천한 경우 선물을 하나 추첨하기 위해 연락드려요. 11월 15일 또는 그
+						이전 참가 신청한 사람이 경품 지급 조건을 충족하면 무조건 하나 더 드려요.
+						[선물] 3종 확률로 추첨하여 나온 상품에 대한 GS25 교환권 [유의사항]
+						Counterspell: Seoul에 참가하지 않는 사람도 추천 코드를 만들 수 있어요.
+						스타벅스 아이스 카페 아메리카노 T 2잔 + 부드러운 생크림 카스텔라는 이벤트
+						참여 유형(운영팀 판단)별 1명을 추후 추첨으로 지급해요. 서로를 추천해도 둘
+						다 하나의 경품만 드려요. 추천 받은 사람도 추천 코드를 만들 수 있어요.
 					</p>
 				</div>
 			</div>
