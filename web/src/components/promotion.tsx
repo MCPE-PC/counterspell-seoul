@@ -67,6 +67,11 @@ const Promotion: React.FC = () => {
 				const data = await response.json();
 				const referral = data.referralCode as string;
 				const gift = gifts[data.gift as number];
+				const text = `대규모 청소년 게임잼
+초대 코드 ${referral} 입력하고 참석하면
+랜덤 선물을 드려요.
+
+https://counterspell-seoul.vercel.app/?gift=${referral}`;
 
 				const share = await Swal.fire({
 					icon: 'success',
@@ -75,13 +80,11 @@ const Promotion: React.FC = () => {
 					confirmButtonText: '공유하기',
 					allowOutsideClick: false,
 					async preConfirm() {
+						await navigator.clipboard.writeText(text);
+
 						await navigator
 							.share({
-								text: `대규모 청소년 게임잼
-초대 코드 ${referral} 입력하고 참석하면
-랜덤 선물을 드려요.
-
-https://counterspell-seoul.vercel.app/?gift=${referral}`,
+								text,
 							})
 							.catch(() => {});
 					},
@@ -112,7 +115,18 @@ https://counterspell-seoul.vercel.app/?gift=${referral}`,
 
 	return (
 		<div>
-			<input type="checkbox" id="promotion-open" className="peer hidden" />
+			<input
+				type="checkbox"
+				id="promotion-open"
+				className="peer hidden"
+				onChange={(event) => {
+					if (!navigator?.share) {
+						event.preventDefault();
+
+						window.open(window.location.href, '_blank');
+					}
+				}}
+			/>
 
 			<div
 				className="hidden peer-checked:block fixed top-0 left-0 w-full h-screen bg-background overflow-auto p-4 z-50"
