@@ -5,9 +5,21 @@ import {
 
 const Response = globalThis.Response as unknown as typeof WorkersResponse;
 
+const headers = {
+	'Access-Control-Allow-Headers': '*',
+	'Access-Control-Allow-Methods': 'POST, OPTIONS',
+	'Access-Control-Allow-Origin': '*',
+};
+
 export default {
 	async fetch(request, env, context) {
-		if (request.method !== 'POST') {
+		if (request.method.toLowerCase() === 'options') {
+			return new Response('OK', {
+				headers,
+			});
+		}
+
+		if (request.method.toLowerCase() !== 'post') {
 			return new Response('Method not allowed', {status: 405});
 		}
 
@@ -21,30 +33,31 @@ export default {
 				typeof body.phoneNumber === 'string'
 			)
 		) {
-			return new Response('Bad body', {status: 400});
+			return new Response('Bad body', {status: 400, headers});
 		}
 
 		const phoneNumber = body.phoneNumber;
 
 		if (!/^(010|tester)\d{8}$/.test(phoneNumber)) {
-			return new Response('Invalid phone number format', {status: 400});
+			return new Response('Invalid phone number format', {status: 400, headers});
 		}
 
 		const existingEntry = await env.CSS_KV.get(phoneNumber);
 		if (existingEntry) {
 			return new Response(existingEntry, {
-				headers: {'Content-Type': 'application/json'},
+				headers: {'Content-Type': 'application/json', ...headers},
 			});
 		}
 
 		const newEntry = JSON.stringify({
 			referralCode: generateReferralCode(),
 			gift: generateRandomGift(),
+			createdAt: new Date().toISOString(),
 		});
 		await env.CSS_KV.put(phoneNumber, newEntry);
 
 		return new Response(newEntry, {
-			headers: {'Content-Type': 'application/json'},
+			headers: {'Content-Type': 'application/json', ...headers},
 		});
 	},
 } satisfies ExportedHandler<Env>;
@@ -56,27 +69,5 @@ function generateReferralCode() {
 }
 
 function generateRandomGift() {
-	const gifts = [
-		{
-			displayName: '아몬드뺴빼로',
-			imageUrl:
-				'https://st.kakaocdn.net/product/gift/product/20231201135328_56033219f6194a778002ddfa29ca223f.png',
-		},
-		{
-			displayName: '츄파춥스',
-			imageUrl:
-				'https://st.kakaocdn.net/product/gift/product/20230525135605_0ce38d2f80704914be1931f54738e33f.png',
-		},
-		{
-			displayName: '육개장사발면(소컵)',
-			imageUrl:
-				'https://st.kakaocdn.net/product/gift/product/20211202151700_ca74ea9539924fc38491fa6d01f4c954.jpg',
-		},
-	];
-
-	return gifts[
-		Math.floor(
-			(crypto.getRandomValues(new Uint8Array(1))[0] / 256) * gifts.length,
-		)
-	];
+	return Math.floor((crypto.getRandomValues(new Uint8Array(1))[0] / 256) * 3);
 }

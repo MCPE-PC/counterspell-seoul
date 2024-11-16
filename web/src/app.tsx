@@ -3,15 +3,16 @@ import '@infolektuell/noto-color-emoji/index.css';
 import 'material-icons/iconfont/material-icons.css';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
 import React from 'react';
+import Swal from 'sweetalert2';
 import earthGlobeGraphic from '../assets/adobe-firefly/earth-globe-graphic.png';
 import guildsGraphic from '../assets/adobe-firefly/guilds-graphic.png';
 import person from '../assets/adobe-firefly/person.png';
-import wandItem from '../assets/adobe-firefly/wand-item.png';
+import wandItem from '../assets/adobe-firefly/wand-item.png?preset=default';
 import busan from '../assets/busan.png';
-import nuriGs from '../assets/nuri-gs.png';
-import modooSolution from '../assets/modoo-solution.png';
+import nuriGs from '../assets/sponsors/nuri-gs.png';
+import modooSolution from '../assets/sponsors/modoo-solution.png';
 import hackathon1 from '../assets/hackclub/hackathon1.png';
-import hackathon2 from '../assets/hackclub/hackathon2.png';
+import hackathon2 from '../assets/hackclub/hackathon2.png?preset=default';
 import hackclubIconRounded from '../assets/hackclub/icon-rounded.svg';
 import './app.css';
 import AccentBox from './components/accent-box.js';
@@ -20,6 +21,9 @@ import Collapse from './components/collapse.js';
 import Faqs from './components/faqs.js';
 import ImpactIntroduce from './components/impact-introduce.js';
 import InformativeBox from './components/informative-box.js';
+import Image from './components/image.js';
+import Promotion from './components/promotion.js';
+import PromotionBanner from './components/promotion-banner.js';
 
 const App = () => {
 	const registrationHref =
@@ -41,6 +45,35 @@ const App = () => {
 		});
 		document.body.append(widgetbotScript);
 
+		const referral = new URLSearchParams(window.location.search).get('gift');
+
+		if (referral !== null) {
+			void Swal.fire({
+				title: '추천 코드',
+				html: `랜덤 선물을 받기 위해 코드 <strong>${referral}</strong>(을)를 반드시 입력해주세요!`,
+				icon: 'warning',
+				showConfirmButton: true,
+				showCancelButton: true,
+				confirmButtonText:
+					'<div class="flex items-center"><span class="material-icons">content_copy</span> 복사</div>',
+				cancelButtonText:
+					'<div class="flex items-center"><span class="material-icons">close</span> 닫기</div>',
+			}).then(async (result) => {
+				if (result.isConfirmed) {
+					return navigator.clipboard.writeText(referral).then(async () => {
+						return Swal.fire({
+							text: '복사되었습니다!',
+							icon: 'success',
+							toast: true,
+							showConfirmButton: false,
+							timer: 1000,
+							timerProgressBar: true,
+						});
+					});
+				}
+			});
+		}
+
 		return () => {
 			widgetbotScript.remove();
 		};
@@ -48,7 +81,7 @@ const App = () => {
 
 	return (
 		<main className="font-sans text-white lg:text-xl bg-background">
-			<div id="start" className="relative max-lg:h-screen max-lg:mb-20">
+			<div id="start" className="relative max-lg:h-screen">
 				<header className="fixed top-0 w-full pt-5 pb-3 lg:py-4 lg:bg-black z-50">
 					<input
 						id="menu-open"
@@ -103,7 +136,7 @@ const App = () => {
 				<div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-14 pt-32 mb-10 lg:mb-24 lg-width">
 					<div className="relative h-fit">
 						<div className="aspect-[75/34] lg:aspect-[unset] lg:h-[14.25rem] xl:h-[18.5rem] border-y border-[#575757] overflow-hidden">
-							<img
+							<Image
 								className="-translate-x-6 -translate-y-[4.25rem] lg:-translate-y-[4.75rem] xl:-translate-y-20 rotate-[26deg] scale-95 object-cover"
 								src={wandItem}
 								alt=""
@@ -145,13 +178,16 @@ const App = () => {
 						자세히 알아보기
 					</a>
 				</div>
-				<div className="flex justify-center w-full max-lg:absolute max-lg:bottom-8 text-center text-[#767676] text-3xl lg:my-32">
+				<div className="flex justify-center w-full max-lg:absolute max-lg:bottom-8 text-center text-[#767676] text-3xl lg:mt-32 lg:mb-16">
 					<i className="fa-sharp fa-regular fa-chevrons-down scale-x-150"></i>
 				</div>
 			</div>
+
+			<PromotionBanner />
+
 			<div
 				id="impact-intro"
-				className="grid grid-cols-1 lg:grid-cols-3 items-center lg:gap-[calc(10rem+1px)] max-lg:mx-5 lg-width"
+				className="grid grid-cols-1 lg:grid-cols-3 items-center lg:gap-[calc(10rem+1px)] max-lg:mx-5 mt-20 lg:mt-16 lg-width"
 			>
 				<ImpactIntroduce heading={'초심자를 위한\n게임 해커톤'} iconImage={person}>
 					<p>중학생과 고등학생.</p>
@@ -159,7 +195,11 @@ const App = () => {
 				</ImpactIntroduce>
 
 				<ImpactIntroduce heading={'코더.\n화가. 뮤지션.'} iconImage={guildsGraphic}>
-					<p>하고 싶은 역할을 맡고 한정 굿즈까지.</p>
+					<p>
+						하고 싶은 역할을 맡고
+						<br />
+						한정 굿즈까지.
+					</p>
 				</ImpactIntroduce>
 
 				<ImpactIntroduce
@@ -186,9 +226,9 @@ const App = () => {
 							일부로, 한국의 청소년들이 글로벌 무대에 설 수 있는 기회를 제공합니다.
 						</p>
 						<InformativeBox>
-							<strong className="font-bold">해커톤(hackathon)</strong>은 깊게
-							파고든다는 의미의 ‘해킹’(hacking)과 마라톤(marathon)의 합성어로, 즉석에서
-							팀을 구성하여 정해진 시간 안에 무언가를 만드는 대회입니다.
+							<strong>해커톤(hackathon)</strong>은 깊게 파고든다는 의미의
+							‘해킹’(hacking)과 마라톤(marathon)의 합성어로, 즉석에서 팀을 구성하여
+							정해진 시간 안에 무언가를 만드는 대회입니다.
 						</InformativeBox>
 					</CollapseSection>
 
@@ -205,7 +245,7 @@ const App = () => {
 								src={hackathon1}
 								alt="해커톤 1"
 							/>
-							<img
+							<Image
 								className="rounded-3xl border border-[#ff6c6c]"
 								src={hackathon2}
 								alt="해커톤 2"
@@ -292,7 +332,7 @@ const App = () => {
 							</p>
 						</div>
 						<a href="https://counterspellbusan.com/">
-							<div className="flex text-black text-sm bg-white leading-snug rounded-3xl">
+							<div className="flex text-black text-sm bg-white leading-snug rounded-3xl max-w-[30rem]">
 								<img
 									className="w-1/3 rounded-3xl aspect-[17/13] object-cover border-4 border-white mr-1"
 									src={busan}
@@ -320,8 +360,8 @@ const App = () => {
 								이용해주세요.
 							</li>
 							<li>
-								참가 대상 및 인원: 선착순 150명이며 정확한 참가 대상은 자주 묻는 질문을
-								참고해주세요.
+								참가 대상 및 인원: 선착순 80명(예정)이며 정확한 참가 대상은 자주 묻는
+								질문을 참고해주세요.
 							</li>
 							<li>
 								알림 채널: 중요 알림은 문자 메시지로 전송돼요. 중요하지 않은 소식은
@@ -425,7 +465,12 @@ const App = () => {
 					</div>
 				</div>
 			</div>
-			<footer className="relative font-extralight bg-[#1f1f1f] p-5">
+
+			<PromotionBanner />
+
+			<Promotion />
+
+			<footer className="relative font-extralight bg-[#1f1f1f] p-5 mt-10">
 				<div className="absolute right-5 text-right text-[#3a3a3a] text-xl font-black leading-7 lg:hidden">
 					“With major
 					<br />
